@@ -1,0 +1,128 @@
+@import "dependencies/dependencies";
+@import "variables";
+
+//Setup
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background: $color-background;
+  font-family: $font;
+  font-size: $font-size;
+  font-weight: $font-regular;
+  color: $color-body;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+//Styles
+
+body {
+  padding-top: 8em;
+  text-align: center;
+  background-image: url(images/background.png);
+  background-size: 60%;
+
+  &:after {
+    content: "";
+    position: fixed;
+    top: 2%;
+    left: 1%;
+    width: 98%;
+    height: 96%;
+    border: 5px solid $gold;
+    z-index: -1;
+  }
+}
+
+h1 {
+  display: inline-block;
+  margin-bottom: 0;
+  cursor: default;
+  font-family: $font-secondary;
+  color: $color-headline;
+  font-size: 54px;
+  color: #1A1A1A;
+  @include background(linear-gradient(#fff,#fff),linear-gradient(#fff,#fff),linear-gradient($orange,$orange));
+  background-size: 0.05em 9px, 0.05em 13px, 22px 4px;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  text-shadow: .03em 0 #fff, -.03em 0 #fff, 0 .03em #fff, 0 -.03em #fff, .06em 0 #fff, -.06em 0 #fff, .09em 0 #fff, -.09em 0 #fff, .1em 0 #fff, -.1em 0 #fff, 0.12em 0 #fff, -.12em 0 #fff;
+  background-position: 0 97%, 100% 97%, 0 97%;
+}
+
+.bar {
+  max-width: 80%;
+  height: 96px;
+  margin: 80px auto;
+  position: relative;
+  border: 5px solid $green;
+  border-radius: 3px;
+  font-family: $font-secondary;
+  font-size: 18px;
+  color: $orange;
+}
+
+@include keyframes(loop) {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -120px 60px;
+  }
+}
+
+.progress {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: $green;
+  background-size: 60px 60px;
+    background-image: linear-gradient(
+      45deg,
+      rgba(black, 0.05) 25%,
+      transparent       25%,
+      transparent       50%,
+      rgba(black, 0.05) 50%,
+      rgba(black, 0.05) 75%,
+      transparent       75%,
+      transparent
+    );
+  @include animation(loop 1.5s linear infinite);
+
+  &:after {
+    position: absolute;
+    right: -50px;
+    width: 100px;
+    text-align: center;
+    bottom: -2.5em;
+    content: attr(data-width);
+  }
+}
+
+.baby {
+  position: absolute;
+  right: 0;
+  top: -30%;
+  @include transform(translateX(50%));
+  @include size(78px 104px);
+  @include retina-image(images/baby, 78px 104px);
+
+  &:after {
+    content: "";
+    @include size(27px 14px);
+    background-image: url(images/baby-glee.svg);
+  }
+}
