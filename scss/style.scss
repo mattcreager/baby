@@ -48,7 +48,8 @@ body {
 
 h1 {
   display: inline-block;
-  margin-bottom: 0;
+  margin: 0 auto;
+  max-width: 87%;
   cursor: default;
   font-family: $font-secondary;
   color: $color-headline;
@@ -59,6 +60,14 @@ h1 {
   background-repeat: no-repeat, no-repeat, repeat-x;
   text-shadow: .03em 0 #fff, -.03em 0 #fff, 0 .03em #fff, 0 -.03em #fff, .06em 0 #fff, -.06em 0 #fff, .09em 0 #fff, -.09em 0 #fff, .1em 0 #fff, -.1em 0 #fff, 0.12em 0 #fff, -.12em 0 #fff;
   background-position: 0 97%, 100% 97%, 0 97%;
+
+  @media only screen and (max-width: 700px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    background: none;
+  }
 }
 
 .bar {
@@ -66,7 +75,7 @@ h1 {
   height: 96px;
   margin: 80px auto;
   position: relative;
-  border: 5px solid $green;
+  border: 5px solid darken($green, 30%);
   border-radius: 3px;
   font-family: $font-secondary;
   font-size: 18px;
@@ -126,3 +135,75 @@ h1 {
     background-image: url(images/baby-glee.svg);
   }
 }
+
+  $glee-w: 22px;
+  $mark-w: 4px;
+
+  .baby__glee {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: $glee-w;
+    height: 35px;
+    margin-left: -12px;
+  }
+
+  @include keyframes(mark) {
+    0% {
+      top: 0;
+    }
+    45% {
+      top: 0;
+    }
+    50% {
+      top: 110%;
+    }
+    55% {
+      top: 0;
+    }
+    100% {
+      top: 5%;
+    }
+  }
+
+  .baby__glee__mark {
+    display: block;
+    position: absolute;
+    width: $mark-w;
+    height: 14px;
+    bottom: 0;
+    left: 0;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 110%;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: $orange;
+      @include animation(mark 3s ease infinite)
+    }
+
+    &:nth-child(1) {
+      left: 0;
+      margin-left: 0;
+      @include transform(rotate(-24deg));
+    }
+
+    &:nth-child(2) {
+      left: 50%;
+      bottom: 2px;
+      height: 18px;
+      &:after { @include animation-delay(.2s); }
+    }
+
+    &:nth-child(3) {
+      left: 100%;
+      @include transform(rotate(24deg));
+      &:after { @include animation-delay(.4s); }
+    }
+  }
