@@ -50,7 +50,8 @@ body:after {
 
 h1 {
   display: inline-block;
-  margin-bottom: 0;
+  margin: 0 auto;
+  max-width: 87%;
   cursor: default;
   font-family: "Cantata One", "Helvetica Neue", sans-serif;
   color: #1B1F1F;
@@ -62,6 +63,18 @@ h1 {
   background-repeat: no-repeat, no-repeat, repeat-x;
   text-shadow: .03em 0 #fff, -.03em 0 #fff, 0 .03em #fff, 0 -.03em #fff, .06em 0 #fff, -.06em 0 #fff, .09em 0 #fff, -.09em 0 #fff, .1em 0 #fff, -.1em 0 #fff, 0.12em 0 #fff, -.12em 0 #fff;
   background-position: 0 97%, 100% 97%, 0 97%;
+}
+
+@media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    background: none;
+  }
 }
 
 .bar {
