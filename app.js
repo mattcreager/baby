@@ -3,23 +3,26 @@ var exphbs = require('express-handlebars')
 var moment = require('moment')
 var app = express()
 var hbs = exphbs.create({ defaultLayout: 'main' })
+var BABY_NAME = process.env.BABY_NAME
+var BABY_DUE = process.env.BABY_DUE
 var TOTAL_DAYS_PREG = 280
-var due_date = 'Oct 20, 2016'
 
-var m = moment(new Date(due_date))
+var momentDue = moment(new Date(BABY_DUE))
+var momentToday = moment().startOf('day')
 
-var today = moment().startOf('day')
+var daysUntilBoom = TOTAL_DAYS_PREG + Math.round(moment.duration(momentToday - momentDue).asDays())
 
-var days = TOTAL_DAYS_PREG + Math.round(moment.duration(today - m).asDays())
-
-var percent_pop = Math.round(days / TOTAL_DAYS_PREG * 100)
+var babyPercent = Math.round(daysUntilBoom / TOTAL_DAYS_PREG * 100)
 
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 app.get('/', function (req, res) {
-  res.render('home', { percent_pop: percent_pop })
+  res.render('home', {
+    babyPercent: babyPercent,
+    surname: BABY_NAME
+  })
 })
 
 var server = app.listen(process.env.PORT || 8000, function () {
