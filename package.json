@@ -1,7 +1,7 @@
 {
-  "name": "nude",
+  "name": "BabyWhen",
   "version": "0.1.0",
-  "description": "Naked project directory",
+  "description": "A loading bar for your baby.",
   "main": "index.js",
   "directories": {
     "example": "example"
@@ -12,18 +12,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ntassone/nude"
+    "url": "https://github.com/mattcreager/baby"
   },
-  "author": {
-    "name": "Nick Tassone",
-    "email": "ntassone@gmail.com",
-    "url": "https://github.com/ntassone/nude"
-  },
+  "contributors": [
+    {
+      "name": "Nick Tassone",
+      "email": "ntassone@gmail.com"
+    },
+    {
+      "name": "Matt Creager",
+      "email": "matthew.creager@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ntassone/nude/issues"
+    "url": "https://github.com/mattcreager/baby/issues"
   },
-  "homepage": "https://github.com/ntassone/nude",
+  "homepage": "https://github.com/mattcreager/baby",
   "devDependencies": {
     "browser-sync": "^2.9.3",
     "gulp": "^3.9.0",

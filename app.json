@@ -1,15 +1,21 @@
 {
-  "name": "Nude",
-  "description": "Quick and easy blank app for front end endeavors",
+  "name": "BabyWhen",
+  "description": "A loading bar for your baby.",
+  "env": {
+    "BABY_NAME": {
+      "description": "Enter your surname!",
+      "required": true
+    },
+    "BABY_DUE": {
+      "description": "When will baby ship?",
+      "value": "10/20/2016",
+      "required": true
+    }
+  },
   "keywords": [
-    "node",
-    "bourbon",
-    "gulp",
-    "browsersync",
-    "heroku",
-    "neat",
-    "scss"
+    "heroku"
   ],
+  "image": "heroku/nodejs",
   "website": "https://getnude.herokuapp.com/",
   "repository": "https://github.com/ntassone/nude"
 }
