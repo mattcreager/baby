@@ -16,6 +16,5 @@
     "heroku"
   ],
   "image": "heroku/nodejs",
-  "website": "https://getnude.herokuapp.com/",
-  "repository": "https://github.com/ntassone/nude"
+  "repository": "https://github.com/mattcreager/baby"
 }
